@@ -1,0 +1,26 @@
+<?php
+    $title = 'Add new User';
+    $this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+    $form = $this->form;
+    $form->setAttribute('action', $this->url('user', array('action' => 'add')));
+    $form->prepare();
+    echo $this->form()->openTag($form);
+?>
+<dl class="zend_form">
+    <?php $this->formHidden($form->get('id'));?>
+    <dt><?php echo $this->formLabel($form->get('name')); ?></dt>
+    <dd><?php echo $this->formInput($form->get('name')) . $this->formElementErrors($form->get('name')) ?></dd>
+
+    <dt><?php echo $this->formLabel($form->get('email')); ?></dt>
+    <dd><?php echo $this->formInput($form->get('email')) . $this->formElementErrors($form->get('email')) ?></dd>
+
+    <dt><?php echo $this->formLabel($form->get('password')); ?></dt>
+    <dd><?php echo $this->formInput($form->get('password')) . $this->formElementErrors($form->get('password')) ?></dd>
+
+    <dd><?php echo $this->formSubmit($form->get('submit')) ?></dd>
+
+</dl>
+<?php    echo $this->form()->closeTag($form); ?>
